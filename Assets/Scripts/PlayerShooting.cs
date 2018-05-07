@@ -5,44 +5,44 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class PlayerShooting : MonoBehaviour {
 
-    public BasePower[] powers;
-    public int damage = 10;
-    public float timeBetweenBullets = 0.15f;
-    public int range = 100;
-    public GameObject gun;
-    public AudioClip shootingSound;
-    public AudioSource audioSource;
-    public Transform gunEnd;
+    public Power[] Powers;
+    public int Damage = 10;
+    public float TimeBetweenBullets = 0.15f;
+    public int Range = 100;
+    public GameObject Gun;
+    public AudioClip ShootingSound;
+    public AudioSource AudioSource;
+    public Transform GunEnd;
 
-    [SerializeField] private Camera cam;
-    [SerializeField] private LayerMask mask;
-    private float timer;
-    private float effectsDisplayTime = 0.2f;
-    private LineRenderer gunLine;
+    [SerializeField] private Camera _cam;
+    [SerializeField] private LayerMask _mask;
+    private float _timer;
+    private float _effectsDisplayTime = 0.2f;
+    private LineRenderer _gunLine;
 
-    private IPower activePower;
+    private Power activePower;
 
-    void Awake()
+    private void Awake()
     {
-        gunLine = gun.GetComponent<LineRenderer>();
+        _gunLine = Gun.GetComponent<LineRenderer>();
     }
 
-    void Start()
+    private void Start()
     {
-        if(cam == null)
+        if(_cam == null)
         {
             Debug.Log("No camera referenced");
             this.enabled = false;
         }
 
-        audioSource.clip = shootingSound;
+        AudioSource.clip = ShootingSound;
     }
 
-    void Update()
+    private void Update()
     {
-        timer += Time.deltaTime;
+        _timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        if (Input.GetButton("Fire1") && _timer >= TimeBetweenBullets && Time.timeScale != 0)
         {
             /*activePower = powers[0] as IPower;
             activePower.Shoot();*/
@@ -57,21 +57,18 @@ public class PlayerShooting : MonoBehaviour {
             Shoot();
         }
 
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
+        if (_timer >= TimeBetweenBullets * _effectsDisplayTime)
         {
-            gunLine.enabled = false;
+            _gunLine.enabled = false;
         }
     }
 
     void Shoot()
     {
-        timer = 0f;
+        _timer = 0f;
 
-        //hace que el line renderer gire
-        //gunLine.material.mainTextureOffset = new Vector2(0, Time.time);
-
-        gunLine.enabled = true;
-        gunLine.SetPosition(0, gunEnd.position);
+        _gunLine.enabled = true;
+        _gunLine.SetPosition(0, GunEnd.position);
 
         PlayShootingSound();
 
@@ -82,25 +79,25 @@ public class PlayerShooting : MonoBehaviour {
     {
         RaycastHit _hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, range, mask))
+        if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out _hit, Range, _mask))
         {
             EnemyHealth enemyHealth = _hit.collider.GetComponent<EnemyHealth>();
 
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(damage, _hit.point);
+                enemyHealth.TakeDamage(Damage, _hit.point);
             }
 
-            gunLine.SetPosition(1, _hit.point);
+            _gunLine.SetPosition(1, _hit.point);
         }
         else
         {
-            gunLine.SetPosition(1, cam.transform.position + cam.transform.forward * range);
+            _gunLine.SetPosition(1, _cam.transform.position + _cam.transform.forward * Range);
         }
     }
 
     void PlayShootingSound()
     {
-        audioSource.Play();
+        AudioSource.Play();
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeamPower : BasePower, IPower
+public class BeamPower : Power, IPower
 {
     public void Shoot()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BasePower : MonoBehaviour
+public abstract class Power : MonoBehaviour
 {
     public enum DamageColor
     {
