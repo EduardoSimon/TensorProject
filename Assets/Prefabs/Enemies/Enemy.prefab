@@ -205,8 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0caa9f89d22f01c46b354b54db2215a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  scoreValue: 10
+  Health: 10
+  ScoreValue: 10
+  EnemyColor: 0
 --- !u!114 &114332091722239868
 MonoBehaviour:
   m_ObjectHideFlags: 1

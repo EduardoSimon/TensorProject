@@ -15,6 +15,7 @@ public class Power : MonoBehaviour
     [SerializeField] private float _timeBetweenBullets;
     [SerializeField] private float _damage;
     [SerializeField] private AudioClip _shootingAudioClip;
+    [SerializeField] private Color _lineColor;
 
     public float Range
     {
@@ -51,4 +52,16 @@ public class Power : MonoBehaviour
         set { _shootingAudioClip = value; }
     }
 
+    public Color LineColor
+    {
+        get
+        {
+            return _lineColor;
+        }
+
+        set
+        {
+            _lineColor = value;
+        }
+    }
 }
