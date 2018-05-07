@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 100;    
+    public int startingHealth = 10;    
     
     private int currentHealth;
 

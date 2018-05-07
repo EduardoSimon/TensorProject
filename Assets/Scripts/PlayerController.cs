@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+    }
 
     private void Start()
     {

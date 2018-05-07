@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour {
 
     public float timeBetweenAttacks = 0.5f;
-    public int attackDamage = 10;
+    public int attackDamage = 1;
 
     GameObject player;
     PlayerHealth playerHealth;
@@ -21,7 +21,8 @@ public class EnemyAttack : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+
+        if (other.gameObject.tag == "playerCollider")
         {
             playerInRange = true;
         }
@@ -30,7 +31,7 @@ public class EnemyAttack : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject.tag == "playerCollider")
         {
             playerInRange = false;
         }

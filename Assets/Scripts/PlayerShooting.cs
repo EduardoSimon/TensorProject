@@ -19,7 +19,6 @@ public class PlayerShooting : MonoBehaviour {
     private float _effectsDisplayTime = 0.2f;
     private LineRenderer _gunLine;
     private Power _activePower;
-    private Material _lineMaterial;
 
     public Power ActivePower
     {
@@ -29,7 +28,6 @@ public class PlayerShooting : MonoBehaviour {
     private void Awake()
     {
         _gunLine = Gun.GetComponent<LineRenderer>();
-        _lineMaterial = _gunLine.material;
         _activePower = Powers[0];
     }
 
@@ -56,16 +54,14 @@ public class PlayerShooting : MonoBehaviour {
 
         if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Time.timeScale != 0)
         {
-            _gunLine.startColor = ActivePower.LineColor;
-
             _activePower = Powers[0];
+            _gunLine.startColor = ActivePower.LineColor;
             Shoot();
         }
         else if (Input.GetButton(RightPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Time.timeScale != 0)
         {
-            _gunLine.startColor = ActivePower.LineColor;
-
             _activePower = Powers[1];
+            _gunLine.startColor = ActivePower.LineColor;
             Shoot();
         }
     }
