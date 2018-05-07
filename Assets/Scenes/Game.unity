@@ -1524,7 +1524,7 @@ Prefab:
     - target: {fileID: 223542865977097442, guid: 3ac5eab00b879674c85bc8c393cc82e1,
         type: 2}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ac5eab00b879674c85bc8c393cc82e1, type: 2}
@@ -2964,7 +2964,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1552594
+  m_Name: pb_Mesh-11800
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4455,6 +4455,31 @@ Prefab:
       propertyPath: m_Positions.Array.data[1].z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 20080740055416524, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.11764705
+      objectReference: {fileID: 0}
+    - target: {fileID: 20080740055416524, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.11764705
+      objectReference: {fileID: 0}
+    - target: {fileID: 20080740055416524, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.11764705
+      objectReference: {fileID: 0}
+    - target: {fileID: 111924239734442592, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 111924239734442592, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 1d204df1bf723d645a3ce8946a952fed, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dd8243f51d291242bcf6f6196a832a8, type: 2}
   m_IsPrefabParent: 0
@@ -13673,6 +13698,48 @@ Prefab:
     - target: {fileID: 1736800296144216, guid: c57e69db330ad6d4dbd3705f67a7e290, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198384467121961328, guid: c57e69db330ad6d4dbd3705f67a7e290,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1119837886
+      objectReference: {fileID: 0}
+    - target: {fileID: 198384467121961328, guid: c57e69db330ad6d4dbd3705f67a7e290,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198384467121961328, guid: c57e69db330ad6d4dbd3705f67a7e290,
+        type: 2}
+      propertyPath: ShapeModule.donutRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198448451978676780, guid: c57e69db330ad6d4dbd3705f67a7e290,
+        type: 2}
+      propertyPath: randomSeed
+      value: 576227652
+      objectReference: {fileID: 0}
+    - target: {fileID: 198448451978676780, guid: c57e69db330ad6d4dbd3705f67a7e290,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198448451978676780, guid: c57e69db330ad6d4dbd3705f67a7e290,
+        type: 2}
+      propertyPath: ShapeModule.donutRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280920176650552, guid: c57e69db330ad6d4dbd3705f67a7e290, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280920176650552, guid: c57e69db330ad6d4dbd3705f67a7e290, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280920176650552, guid: c57e69db330ad6d4dbd3705f67a7e290, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c57e69db330ad6d4dbd3705f67a7e290, type: 2}
