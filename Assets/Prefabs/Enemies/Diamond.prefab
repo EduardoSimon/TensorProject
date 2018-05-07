@@ -63,7 +63,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e305453a48fa58446882f6671dfa0d58, type: 2}
+  - {fileID: 2100000, guid: da499557e176da046aeb51af0ce90dd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,8 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0caa9f89d22f01c46b354b54db2215a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  scoreValue: 10
+  Health: 100
+  ScoreValue: 10
+  EnemyColor: 1
 --- !u!114 &114332091722239868
 MonoBehaviour:
   m_ObjectHideFlags: 1

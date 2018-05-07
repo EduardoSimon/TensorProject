@@ -107,7 +107,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4533806706917076}
   - component: {fileID: 111924239734442592}
-  - component: {fileID: 114355336070377422}
   - component: {fileID: 82884916306534890}
   - component: {fileID: 120781684926011036}
   - component: {fileID: 199081012768142908}
@@ -235,8 +234,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186224537673778}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.02, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 610.56, y: 812.07, z: -21.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686403677896916}
@@ -338,7 +337,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_BackGroundColor: {r: 0.102941155, g: 0.102941155, b: 0.102941155, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -795,27 +794,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 20080740055416524}
   cameraRotationLimit: 90
---- !u!114 &114355336070377422
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636586727051698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03cbc09bc53089f4886a33ab8aadee56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flareBullet: {fileID: 5400000, guid: 502f397bde12655448ff152eac00cdc7, type: 2}
-  barrelEnd: {fileID: 4039215597804662}
-  muzzleParticles: {fileID: 101206, guid: 0d6d0598d4c6d514bbf8228309023a4d, type: 2}
-  flareShotSound: {fileID: 8300000, guid: 0f01458ab91c1ac4883d0e6e549bff26, type: 3}
-  noAmmoSound: {fileID: 8300000, guid: 33b4f082caddfbd479b447561a4339b4, type: 3}
-  reloadSound: {fileID: 8300000, guid: 83c52e0124588cb41b7c1c200f457a50, type: 3}
-  bulletSpeed: 2000
-  maxSpareRounds: 5
-  spareRounds: 3
-  currentRound: 0
 --- !u!114 &114484633369292488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -852,18 +830,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6ad59c5d201b44cb8837b8b62dc7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powers: []
-  damage: 50
-  timeBetweenBullets: 0.15
-  range: 100
-  gun: {fileID: 1636586727051698}
-  shootingSound: {fileID: 8300000, guid: 0039493db06d72d46a05888eadc88de1, type: 3}
-  audioSource: {fileID: 82884916306534890}
-  gunEnd: {fileID: 4039215597804662}
-  cam: {fileID: 20080740055416524}
-  mask:
+  Powers:
+  - {fileID: 114345374466881264, guid: ea345168b9dec4345b16712a217749ba, type: 2}
+  - {fileID: 114345374466881264, guid: 172bfad6cd4f7da448982e5750e46fc6, type: 2}
+  Gun: {fileID: 1636586727051698}
+  GunAudioSource: {fileID: 82238014098280778}
+  GunEnd: {fileID: 4039215597804662}
+  LeftPowerAxisName: Fire1
+  RightPowerAxisName: Fire2
+  _cam: {fileID: 20080740055416524}
+  _mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4294967295
 --- !u!120 &120781684926011036
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1055,7 +1033,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 549216999
+  randomSeed: -1456103500
   InitialModule:
     serializedVersion: 3
     enabled: 1

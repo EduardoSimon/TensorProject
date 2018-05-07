@@ -5,23 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;
-    public int scoreValue = 10;
+    public int Health = 100;
+    public int ScoreValue = 10;
+    public Power.DamageColor EnemyColor;
 
-    private EnemySound sound;
+    private EnemySound _sound;
 
     private void Start()
     {
-        sound = GetComponent<EnemySound>();
+        _sound = GetComponent<EnemySound>();
     }
-    public void TakeDamage(int amount, Vector3 hitPoint)
-    {
-        health -= amount;
 
-        if (health <= 0)
+    public void TakeDamage(int amount, Vector3 hitPoint, Power.DamageColor activePowerColor)
+    {
+        if (activePowerColor != EnemyColor) return;
+
+        Health -= amount;
+
+        if (Health <= 0)
         {
-            ScoreManager.score += scoreValue;
-            sound.PlayEnemyClip(sound.destroyedClip);
+            ScoreManager.score += ScoreValue;
+            _sound.PlayEnemyClip(_sound.destroyedClip);
             Destroy(gameObject);
         }
     }
