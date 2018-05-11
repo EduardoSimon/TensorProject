@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void Update()
     {
-        _navMeshAgent.SetDestination(_destination.position);
+        if(_navMeshAgent.isActiveAndEnabled)
+            _navMeshAgent.SetDestination(_destination.position);
     }
 }
