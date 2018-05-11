@@ -47,4 +47,10 @@ public class EndGame : MonoBehaviour {
     {
         return highestScore;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {   
+        if(player)
+            playerHealth.InstaKill();
+    }
 }

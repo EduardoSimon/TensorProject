@@ -44,7 +44,6 @@ public class PlayerShooting : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(ActivePower.ToString());
         _timer += Time.deltaTime;
 
         if (_timer >= ActivePower.TimeBetweenBullets * _effectsDisplayTime)
@@ -64,6 +63,7 @@ public class PlayerShooting : MonoBehaviour {
             _gunLine.startColor = ActivePower.LineColor;
             Shoot();
         }
+
     }
 
     void Shoot()
