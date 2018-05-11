@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 10;    
-    
-    private int currentHealth;
+    public float StartingHealth = 10;
 
-    void Awake()
+    public float CurrentHealthPercentage
     {
-        currentHealth = startingHealth;
+        get { return 100 * CurrentHealth / StartingHealth; }
+    }
+
+    public float CurrentHealth { get; private set; }
+
+    private void Awake()
+    {
+        CurrentHealth = StartingHealth;
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-    }
-
-    public int GetCurrentHealth()
-    {
-        return currentHealth;
+        CurrentHealth -= amount;
     }
 
     //Llama cuando cae del escenario
     public void InstaKill()
     {
-        currentHealth = 0;
+        CurrentHealth = 0;
     }
 }

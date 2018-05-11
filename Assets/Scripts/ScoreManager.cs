@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
     public static int score;
 
-    public GameObject ScoreText;
-    TextMeshProUGUI scoreText;
+    public Text ScoreText;
 
     void Awake()
     {
-        scoreText = ScoreText.GetComponent<TextMeshProUGUI>();
-
         score = 0;
     }
 
     void Update()
     {
-        scoreText.text = "" + score;
+        ScoreText.text = "" + score;
     }
 }

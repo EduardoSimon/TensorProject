@@ -33,7 +33,6 @@ public class EnemyHealth : MonoBehaviour
 
         if (Health <= 0)
         {
-            ScoreManager.score += ScoreValue;
             _agent.enabled = false;
             _rb.isKinematic = false;
             //_rb.AddForce(new Vector3(0,-1,0) * ForceMultiplier,ForceMode.Force);
@@ -55,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
             percent += 0.01f;
             yield return null;
         }
-
+        ScoreManager.score += ScoreValue;
         Destroy(gameObject);
     }
 }

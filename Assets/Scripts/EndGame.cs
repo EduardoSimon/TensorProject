@@ -23,7 +23,7 @@ public class EndGame : MonoBehaviour {
 
     private void Update()
     {
-        if(playerHealth.GetCurrentHealth() <= 0)
+        if(playerHealth.CurrentHealth<= 0)
         {
             if (ScoreManager.score > highestScore)
             {
