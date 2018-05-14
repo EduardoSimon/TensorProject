@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HighestScore : MonoBehaviour {
 
     public GameObject HighText;
-    TextMeshProUGUI highText;
+    Text highText;
 
     void Awake()
     {
-        highText = HighText.GetComponent<TextMeshProUGUI>();
+        highText = HighText.GetComponent<Text>();
     }
 
     private void Start()

@@ -30,8 +30,8 @@ public class EndGame : MonoBehaviour {
                 PlayerPrefs.SetInt("highestScore", ScoreManager.score);
             }
 
-            //2 porque es la escena de highest score
-            SceneManager.LoadScene(2);
+            //4 porque es la escena de highest score
+            SceneManager.LoadScene(4);
         }
     }
 
