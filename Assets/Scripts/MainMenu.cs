@@ -5,10 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    GameObject other;
+    PauseMenu _audioManager;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    private void Start()
+    {
+        other = GameObject.FindWithTag("AudioManager");
+        _audioManager = other.GetComponent<PauseMenu>();
     }
 
     public void PlayGame()
@@ -24,7 +33,17 @@ public class MainMenu : MonoBehaviour {
 
     public void Menu()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("MenuJAM");
+    }
+
+    public void Controls()
+    {
+        SceneManager.LoadScene("MenuJAMControls");
+    }
+
+    public void Options()
+    {
+        _audioManager.OptionsMainMenu();
     }
 
 }
