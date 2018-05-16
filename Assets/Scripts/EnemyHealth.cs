@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public Power.DamageColor EnemyColor;
     public float DestroyTime;
     public float ForceMultiplier;
+    public GameObject HitParticleEffect;
 
     private Material _material;
     private EnemySound _sound;
@@ -25,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
         _material = GetComponentInChildren<MeshRenderer>().material;
     }
 
-    public void TakeDamage(int amount, Vector3 hitPoint, Power.DamageColor activePowerColor)
+    public void TakeDamage(int amount, Vector3 hitPoint, Power.DamageColor activePowerColor, Vector3 normal)
     {
         if (activePowerColor != EnemyColor) return;
 
@@ -37,6 +38,8 @@ public class EnemyHealth : MonoBehaviour
             _rb.isKinematic = false;
             //_rb.AddForce(new Vector3(0,-1,0) * ForceMultiplier,ForceMode.Force);
             _sound.PlayEnemyClip(_sound.destroyedClip);
+
+            Destroy(Instantiate(HitParticleEffect, hitPoint, Quaternion.identity), 0.6f);
 
             StartCoroutine(Dissolve());
         }

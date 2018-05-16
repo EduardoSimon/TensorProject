@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ResourceBarUpdate : MonoBehaviour
+public class HealthBarUpdate : MonoBehaviour
 {
     private Slider _slider;
     private PlayerHealth _playerHealth;

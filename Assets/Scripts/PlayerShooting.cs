@@ -12,23 +12,25 @@ public class PlayerShooting : MonoBehaviour {
     public Transform GunEnd;
     public string LeftPowerAxisName = "Fire1";
     public string RightPowerAxisName = "Fire2";
+    public float DecreaseValueBeamPower = 0.1f;
+    public float DecreaseValueGunshotPower = 1.0f;
 
     [SerializeField] private Camera _cam;
     [SerializeField] private LayerMask _mask;
     private float _timer;
-    private float _effectsDisplayTime = 0.2f;
     private LineRenderer _gunLine;
-    private Power _activePower;
 
-    public Power ActivePower
-    {
-        get { return _activePower;}
-    }
+    public Power ActivePower { get; private set; }
 
     private void Awake()
     {
         _gunLine = Gun.GetComponent<LineRenderer>();
-        _activePower = Powers[0];
+        ActivePower = Powers[0];
+
+        foreach (var power in Powers)
+        {
+            power.Awake();
+        }
     }
 
     private void Start()
@@ -46,24 +48,30 @@ public class PlayerShooting : MonoBehaviour {
     {
         _timer += Time.deltaTime;
 
-        if (_timer >= ActivePower.TimeBetweenBullets * _effectsDisplayTime)
+        if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[0].PowerQuantity > 0)
         {
-            _gunLine.enabled = false;
-        }
-
-        if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Time.timeScale != 0)
-        {
-            _activePower = Powers[0];
+            ActivePower = Powers[0];
+            ActivePower.DecreasePower(1.0f);
             _gunLine.startColor = ActivePower.LineColor;
             Shoot();
         }
-        else if (Input.GetButton(RightPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Time.timeScale != 0)
+        else if (Input.GetButton(RightPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[1].PowerQuantity > 0)
         {
-            _activePower = Powers[1];
+            ActivePower = Powers[1];
+            ActivePower.DecreasePower(DecreaseValueBeamPower);
             _gunLine.startColor = ActivePower.LineColor;
             Shoot();
+        }else if (ActivePower.PowerQuantity <= 0)
+        {
+            StartCoroutine(ReloadPower(ActivePower,ActivePower.ReloadingTime));
         }
 
+    }
+
+    private IEnumerator ReloadPower(Power power,float reloadingTime)
+    {
+        yield return new WaitForSeconds(reloadingTime);
+        power.PowerQuantity = power.StartPowerQuantity;
     }
 
     void Shoot()
@@ -71,6 +79,7 @@ public class PlayerShooting : MonoBehaviour {
         _timer = 0f;
 
         _gunLine.enabled = true;
+        StartCoroutine(DissolveLineRenderer());
         _gunLine.SetPosition(0, GunEnd.position);
 
         CheckShootingRaycast();
@@ -87,19 +96,26 @@ public class PlayerShooting : MonoBehaviour {
 
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(ActivePower.Damage , _hit.point, ActivePower.PowerColor);
+                enemyHealth.TakeDamage(ActivePower.Damage , _hit.point, ActivePower.PowerColor, _hit.normal);
             }
 
             _gunLine.SetPosition(1, _hit.point);
         }
         else
         {
-            _gunLine.SetPosition(1, _cam.transform.position + _cam.transform.forward * ActivePower.Range);
+            _gunLine.SetPosition(1, GunEnd.transform.position + _cam.transform.forward * ActivePower.Range);
+
         }
     }
 
     void PlayShootingSound()
     {
         GunAudioSource.Play();
+    }
+
+    IEnumerator DissolveLineRenderer()
+    {
+        yield return new WaitForEndOfFrame();
+        _gunLine.enabled = false;
     }
 }

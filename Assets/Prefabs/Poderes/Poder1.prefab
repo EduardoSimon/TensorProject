@@ -51,9 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38058ad176f7e4419825bb0f64777c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _powerId: 0
   _range: 200
   _powerColor: 0
   _timeBetweenBullets: 0.4
   _damage: 10
   _shootingAudioClip: {fileID: 8300000, guid: 0f01458ab91c1ac4883d0e6e549bff26, type: 3}
-  _lineColor: {r: 0.9044118, g: 0.29260382, b: 0.29260382, a: 1}
+  _lineColor: {r: 0.94509804, g: 0.56078434, b: 0.003921569, a: 1}
+  _startPowerQuantity: 100
+  _reloadingTime: 5
