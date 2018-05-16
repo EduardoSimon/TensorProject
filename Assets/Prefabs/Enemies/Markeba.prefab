@@ -255,6 +255,8 @@ MonoBehaviour:
   EnemyColor: 0
   DestroyTime: 2.5
   ForceMultiplier: 15
+  HitParticleEffect: {fileID: 1749423090092570, guid: 9ef5060723864db44a7357b97ad5c045,
+    type: 2}
 --- !u!114 &114332091722239868
 MonoBehaviour:
   m_ObjectHideFlags: 1

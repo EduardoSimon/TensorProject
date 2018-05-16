@@ -10,12 +10,34 @@ public class Power : MonoBehaviour
         Black,
     }
 
+    [SerializeField] private int _powerId;
     [SerializeField] private float _range;
     [SerializeField] private DamageColor _powerColor;
     [SerializeField] private float _timeBetweenBullets;
     [SerializeField] private float _damage;
     [SerializeField] private AudioClip _shootingAudioClip;
     [SerializeField] private Color _lineColor;
+    [SerializeField] private float _startPowerQuantity;
+    [SerializeField] private float _reloadingTime;
+
+    private float _powerQuantity;
+
+    public void Awake()
+    {
+        _powerQuantity = StartPowerQuantity;
+    }
+
+
+    public void DecreasePower(float delta)
+    {
+        if (PowerQuantity <= 0)
+            return;
+
+        _powerQuantity -= delta;
+
+        if (PowerQuantity <= 0)
+            _powerQuantity = 0;
+    }
 
     public float Range
     {
@@ -62,6 +84,43 @@ public class Power : MonoBehaviour
         set
         {
             _lineColor = value;
+        }
+    }
+
+    public float PowerQuantity
+    {
+        get { return _powerQuantity; }
+        set { _powerQuantity = value; }
+    }
+
+    public float StartPowerQuantity
+    {
+        get { return _startPowerQuantity; }
+    }
+
+    public int PowerId
+    {
+        get
+        {
+            return _powerId;
+        }
+
+        set
+        {
+            _powerId = value;
+        }
+    }
+
+    public float ReloadingTime
+    {
+        get
+        {
+            return _reloadingTime;
+        }
+
+        set
+        {
+            _reloadingTime = value;
         }
     }
 }
