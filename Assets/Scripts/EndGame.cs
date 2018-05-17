@@ -30,8 +30,9 @@ public class EndGame : MonoBehaviour {
                 PlayerPrefs.SetInt("highestScore", ScoreManager.score);
             }
 
-            //4 porque es la escena de highest score
-            SceneManager.LoadScene(4);
+            PlayerPrefs.SetInt("currentScore", ScoreManager.score);
+
+            SceneManager.LoadScene("MenuJAMScore");
         }
     }
 

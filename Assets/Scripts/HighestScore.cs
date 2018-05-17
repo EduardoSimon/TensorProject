@@ -7,11 +7,15 @@ using UnityEngine.UI;
 public class HighestScore : MonoBehaviour {
 
     public GameObject HighText;
-    Text highText;
+    Text _highText;
+
+    public GameObject CurrentText;
+    Text _currentText;
 
     void Awake()
     {
-        highText = HighText.GetComponent<Text>();
+        _highText = HighText.GetComponent<Text>();
+        _currentText = CurrentText.GetComponent<Text>();
     }
 
     private void Start()
@@ -27,6 +31,7 @@ public class HighestScore : MonoBehaviour {
 
     private void SetHighestScoreText()
     {
-        highText.text = "" + PlayerPrefs.GetInt("highestScore");
+        _highText.text = "" + PlayerPrefs.GetInt("highestScore");
+        _currentText.text = "" + PlayerPrefs.GetInt("currentScore");
     }
 }
