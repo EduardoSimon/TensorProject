@@ -12,11 +12,9 @@ public class PlayerShooting : MonoBehaviour {
     public Transform GunEnd;
     public string LeftPowerAxisName = "Fire1";
     public string RightPowerAxisName = "Fire2";
-    public float DecreaseValueBeamPower = 0.1f;
-    public float DecreaseValueGunshotPower = 1.0f;
 
-    [SerializeField] private Camera _cam;
-    [SerializeField] private LayerMask _mask;
+    private Camera _cam;
+    private LayerMask _mask;
     private float _timer;
     private LineRenderer _gunLine;
 
@@ -30,7 +28,11 @@ public class PlayerShooting : MonoBehaviour {
         foreach (var power in Powers)
         {
             power.Awake();
+            StartCoroutine(ReloadPower(power,power.ReloadingTime,power.ReloadingRate));
         }
+
+        _cam = Camera.main;
+        _mask = LayerMask.NameToLayer("Enemy");
     }
 
     private void Start()
@@ -47,31 +49,26 @@ public class PlayerShooting : MonoBehaviour {
     private void Update()
     {
         _timer += Time.deltaTime;
-
-        if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[0].PowerQuantity > 0)
-        {
-            ActivePower = Powers[0];
-            ActivePower.DecreasePower(1.0f);
-            _gunLine.startColor = ActivePower.LineColor;
-            Shoot();
-        }
-        else if (Input.GetButton(RightPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[1].PowerQuantity > 0)
-        {
-            ActivePower = Powers[1];
-            ActivePower.DecreasePower(DecreaseValueBeamPower);
-            _gunLine.startColor = ActivePower.LineColor;
-            Shoot();
-        }else if (ActivePower.PowerQuantity <= 0)
-        {
-            StartCoroutine(ReloadPower(ActivePower,ActivePower.ReloadingTime));
-        }
-
+        HandleInput();
     }
 
-    private IEnumerator ReloadPower(Power power,float reloadingTime)
+    private void HandleInput()
     {
-        yield return new WaitForSeconds(reloadingTime);
-        power.PowerQuantity = power.StartPowerQuantity;
+        if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[0].PowerQuantity > 0 && Time.timeScale > 0)
+        {
+            ActivePower = Powers[0];
+            ActivePower.DecreasePower(ActivePower.DecreasingRate);
+            _gunLine.startColor = ActivePower.LineColor;
+            Shoot();
+        }
+        else if (Input.GetButton(RightPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets &&
+                 Powers[1].PowerQuantity > 0 && Time.timeScale > 0)
+        {
+            ActivePower = Powers[1];
+            ActivePower.DecreasePower(ActivePower.DecreasingRate);
+            _gunLine.startColor = ActivePower.LineColor;
+            Shoot();
+        }
     }
 
     void Shoot()
@@ -92,7 +89,7 @@ public class PlayerShooting : MonoBehaviour {
 
         if (Physics.Raycast(_cam.transform.position, _cam.transform.forward, out _hit, ActivePower.Range, _mask))
         {
-            EnemyHealth enemyHealth = _hit.collider.GetComponent<EnemyHealth>();
+            EnemyHealth enemyHealth = _hit.collider.transform.parent.GetComponent<EnemyHealth>();
 
             if (enemyHealth != null)
             {
@@ -117,5 +114,14 @@ public class PlayerShooting : MonoBehaviour {
     {
         yield return new WaitForEndOfFrame();
         _gunLine.enabled = false;
+    }
+
+    private IEnumerator ReloadPower(Power power, float reloadingTime, float nToIncreasePower)
+    {
+        while (true)
+        {
+            yield return null;
+            power.PowerQuantity += nToIncreasePower;
+        }
     }
 }

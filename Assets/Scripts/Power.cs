@@ -19,12 +19,12 @@ public class Power : MonoBehaviour
     [SerializeField] private Color _lineColor;
     [SerializeField] private float _startPowerQuantity;
     [SerializeField] private float _reloadingTime;
-
-    private float _powerQuantity;
+    [SerializeField] private float _reloadingRate;
+    [SerializeField] private float _decreasingRate;
 
     public void Awake()
     {
-        _powerQuantity = StartPowerQuantity;
+        PowerQuantity = StartPowerQuantity;
     }
 
 
@@ -33,10 +33,10 @@ public class Power : MonoBehaviour
         if (PowerQuantity <= 0)
             return;
 
-        _powerQuantity -= delta;
+        PowerQuantity -= delta;
 
         if (PowerQuantity <= 0)
-            _powerQuantity = 0;
+            PowerQuantity = 0;
     }
 
     public float Range
@@ -87,11 +87,7 @@ public class Power : MonoBehaviour
         }
     }
 
-    public float PowerQuantity
-    {
-        get { return _powerQuantity; }
-        set { _powerQuantity = value; }
-    }
+    public float PowerQuantity { get; set; }
 
     public float StartPowerQuantity
     {
@@ -121,6 +117,32 @@ public class Power : MonoBehaviour
         set
         {
             _reloadingTime = value;
+        }
+    }
+
+    public float ReloadingRate
+    {
+        get
+        {
+            return _reloadingRate;
+        }
+
+        set
+        {
+            _reloadingRate = value;
+        }
+    }
+
+    public float DecreasingRate
+    {
+        get
+        {
+            return _decreasingRate;
+        }
+
+        set
+        {
+            _decreasingRate = value;
         }
     }
 }

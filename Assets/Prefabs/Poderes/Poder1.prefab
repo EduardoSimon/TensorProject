@@ -60,3 +60,5 @@ MonoBehaviour:
   _lineColor: {r: 0.94509804, g: 0.56078434, b: 0.003921569, a: 1}
   _startPowerQuantity: 100
   _reloadingTime: 5
+  _reloadingRate: 0.1
+  _decreasingRate: 6
