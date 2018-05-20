@@ -13,8 +13,8 @@ public class PlayerShooting : MonoBehaviour {
     public string LeftPowerAxisName = "Fire1";
     public string RightPowerAxisName = "Fire2";
 
-    private Camera _cam;
-    private LayerMask _mask;
+    public Camera _cam;
+    public LayerMask _mask;
     private float _timer;
     private LineRenderer _gunLine;
 
@@ -31,8 +31,6 @@ public class PlayerShooting : MonoBehaviour {
             StartCoroutine(ReloadPower(power,power.ReloadingTime,power.ReloadingRate));
         }
 
-        _cam = Camera.main;
-        _mask = LayerMask.NameToLayer("Enemy");
     }
 
     private void Start()
