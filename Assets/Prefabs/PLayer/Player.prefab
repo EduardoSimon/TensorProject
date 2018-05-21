@@ -858,8 +858,6 @@ MonoBehaviour:
   GunEnd: {fileID: 4478862128954728}
   LeftPowerAxisName: Fire1
   RightPowerAxisName: Fire2
-  DecreaseValueBeamPower: 0.4
-  DecreaseValueGunshotPower: 1
   _cam: {fileID: 20080740055416524}
   _mask:
     serializedVersion: 2

@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4866378206925716}
-  - component: {fileID: 65449874197038966}
   - component: {fileID: 195699989419659504}
   - component: {fileID: 114042917426850802}
   - component: {fileID: 114175072510083320}
@@ -28,7 +27,7 @@ GameObject:
   - component: {fileID: 114332091722239868}
   - component: {fileID: 82078700907897740}
   - component: {fileID: 54712012774942098}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Markeba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -45,6 +44,7 @@ GameObject:
   - component: {fileID: 4556657164908990}
   - component: {fileID: 33259154753602118}
   - component: {fileID: 23899834793442314}
+  - component: {fileID: 65005523680702728}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -135,18 +135,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65449874197038966
+--- !u!65 &65005523680702728
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1592414102114482}
+  m_GameObject: {fileID: 1911217539035678}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.05713901, y: 0.05713901, z: 0.05713901}
+  m_Center: {x: -0.0000009536743, y: 0.0000009536743, z: 0}
 --- !u!82 &82078700907897740
 AudioSource:
   m_ObjectHideFlags: 1
