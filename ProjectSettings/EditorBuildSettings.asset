@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: be22a30a9c421354aae9ae0ab38dca09
-  - enabled: 1
     path: Assets/Scenes/MenuJAM.unity
     guid: 95f374b79914c4045abe13b409d54907
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: be22a30a9c421354aae9ae0ab38dca09
   - enabled: 1
     path: Assets/Scenes/MenuJAMScore.unity
     guid: 02973aa99b2b7b64ca91316ba58564dc
