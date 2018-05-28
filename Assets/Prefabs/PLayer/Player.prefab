@@ -31,7 +31,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1447473077195792
 GameObject:
@@ -43,12 +43,12 @@ GameObject:
   - component: {fileID: 4166961202003642}
   - component: {fileID: 33015295006629016}
   - component: {fileID: 23694343497370250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: body2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1467076583207292
 GameObject:
@@ -58,12 +58,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4478862128954728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: barrelend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1504073480448302
 GameObject:
@@ -74,12 +74,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4187802540147740}
   - component: {fileID: 212212987323310114}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1528899478675622
 GameObject:
@@ -93,12 +93,12 @@ GameObject:
   - component: {fileID: 114034137716499214}
   - component: {fileID: 82479725578955748}
   - component: {fileID: 120102534653451060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flaregun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1530705865669598
 GameObject:
@@ -110,12 +110,12 @@ GameObject:
   - component: {fileID: 4838618183077070}
   - component: {fileID: 33536677752042676}
   - component: {fileID: 23245240989296716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1802583691884678
 GameObject:
@@ -134,7 +134,7 @@ GameObject:
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1861957456205882
 GameObject:
@@ -146,12 +146,12 @@ GameObject:
   - component: {fileID: 4590925573512186}
   - component: {fileID: 33235006340354510}
   - component: {fileID: 23690452945964528}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1935751955406872
 GameObject:
@@ -163,12 +163,12 @@ GameObject:
   - component: {fileID: 4015547973915522}
   - component: {fileID: 33591440779624886}
   - component: {fileID: 23449386981158510}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!1 &1979888214816422
 GameObject:
@@ -186,7 +186,7 @@ GameObject:
   m_TagString: playerCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2
   m_IsActive: 1
 --- !u!4 &4015547973915522
 Transform:
@@ -252,7 +252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186224537673778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 610.56, y: 814.02, z: -21.24}
+  m_LocalPosition: {x: 610.56, y: 812.21, z: -21.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686403677896916}
@@ -351,7 +351,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294966783
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

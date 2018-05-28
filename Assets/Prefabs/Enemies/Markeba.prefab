@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114332091722239868}
   - component: {fileID: 82078700907897740}
   - component: {fileID: 54712012774942098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Markeba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
