@@ -8,12 +8,16 @@ public class EnemyMovement : MonoBehaviour {
     Transform _destination;
 
     NavMeshAgent _navMeshAgent;
-    public float speed = 10f;
+    public float MinSpeed = 8f;
+    public float MaxSpeed = 16f;
+
+    private float speed;
 
     void Awake()
     {
         _destination = GameObject.FindGameObjectWithTag("Player").transform;
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        speed = Random.Range(MinSpeed, MaxSpeed);
     }
 
     void Start()

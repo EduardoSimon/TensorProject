@@ -20,8 +20,14 @@ public class PlayerShooting : MonoBehaviour {
 
     public Power ActivePower { get; private set; }
 
+    public ParticleSystem gunParticles;
+    public Light gunLight;
+    public Light faceLight;
+
     private void Awake()
     {
+        gunParticles = Gun.GetComponent<ParticleSystem>();
+
         _gunLine = Gun.GetComponent<LineRenderer>();
         ActivePower = Powers[0];
 
@@ -30,6 +36,8 @@ public class PlayerShooting : MonoBehaviour {
             power.Awake();
             StartCoroutine(ReloadPower(power,power.ReloadingTime,power.ReloadingRate));
         }
+
+        gunParticles.Stop();
 
     }
 
@@ -52,16 +60,22 @@ public class PlayerShooting : MonoBehaviour {
 
     private void HandleInput()
     {
-        if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[0].PowerQuantity > 0 && Time.timeScale > 0)
+        if (Input.GetButton(LeftPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets && Powers[0].PowerQuantity > (0 + Powers[0].DecreasingRate) && Time.timeScale > 0)
         {
+            power1ParticleColor();
+            gunParticles.Play();
+
             ActivePower = Powers[0];
             ActivePower.DecreasePower(ActivePower.DecreasingRate);
             _gunLine.startColor = ActivePower.LineColor;
             Shoot();
         }
         else if (Input.GetButton(RightPowerAxisName) && _timer >= ActivePower.TimeBetweenBullets &&
-                 Powers[1].PowerQuantity > 0 && Time.timeScale > 0)
+                 Powers[1].PowerQuantity > (0 + Powers[1].DecreasingRate) && Time.timeScale > 0)
         {
+            power2ParticleColor();
+            gunParticles.Play();
+
             ActivePower = Powers[1];
             ActivePower.DecreasePower(ActivePower.DecreasingRate);
             _gunLine.startColor = ActivePower.LineColor;
@@ -119,7 +133,33 @@ public class PlayerShooting : MonoBehaviour {
         while (true)
         {
             yield return null;
-            power.PowerQuantity += nToIncreasePower;
+
+            if(power.PowerQuantity <= 100)
+            {
+                power.PowerQuantity += nToIncreasePower;
+            }
         }
+    }
+
+    void power1ParticleColor()
+    {
+        var col = gunParticles.colorOverLifetime;
+        col.enabled = true;
+
+        Gradient grad = new Gradient();
+        grad.SetKeys(new GradientColorKey[] { new GradientColorKey(new Color32(241, 143, 1, 255), 0.0f), new GradientColorKey(new Color32(255, 0, 0, 255), 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.5f), new GradientAlphaKey(0.0f, 1.0f) });
+
+        col.color = grad;
+    }
+
+    void power2ParticleColor()
+    {
+        var col = gunParticles.colorOverLifetime;
+        col.enabled = true;
+
+        Gradient grad = new Gradient();
+        grad.SetKeys(new GradientColorKey[] { new GradientColorKey(new Color32(45, 76, 117, 255), 0.0f), new GradientColorKey(new Color32(0, 141, 255, 255), 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.5f), new GradientAlphaKey(0.0f, 1.0f) });
+
+        col.color = grad;
     }
 }

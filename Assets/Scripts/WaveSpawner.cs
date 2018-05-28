@@ -18,14 +18,17 @@ public class WaveSpawner : MonoBehaviour {
     };
 
     public Transform[] EnemiesTransform;
-    public Wave[] Waves;
     public Transform[] SpawnPoints;
     public float TimeBetweenWaves = 5f;
 
     private float _waveCountDown;
     private float _searchCountDown = 1f;
-    private int _nextWave = 0;
     private SpawnState _state = SpawnState.Counting;
+
+    private int minWaveCount = 5;
+    private int maxWaveCount = 10;
+    private float minRate = 1f;
+    private float maxRate = 2f;
 
     private bool EnemyIsAlive
     {
@@ -72,7 +75,7 @@ public class WaveSpawner : MonoBehaviour {
             if(_state != SpawnState.Spawning)
             {
                 //Start spawning wave
-                StartCoroutine(SpawnWave(Waves[_nextWave]));
+                StartCoroutine(SpawnWave());
             }
         }
         else
@@ -85,29 +88,24 @@ public class WaveSpawner : MonoBehaviour {
     {
         _state = SpawnState.Counting;
         _waveCountDown = TimeBetweenWaves;
-
-        if(_nextWave + 1 > Waves.Length - 1)
-        {
-            _nextWave = 0;
-        }
-        else
-        {
-            _nextWave++;
-        }
-
     }
 
-    IEnumerator SpawnWave(Wave _wave)
+    IEnumerator SpawnWave()
     {
-        Debug.Log("Spawning Wave: " + _wave.Name);
         _state = SpawnState.Spawning;
 
         //Spawn
-        for(var i = 0; i < _wave.Count; i++)
+        for(var i = 0; i < Random.Range(minWaveCount, maxWaveCount); i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(1f/_wave.Rate);
+            yield return new WaitForSeconds(1f/ Random.Range(minRate, maxRate));
         }
+
+        minWaveCount += 3;
+        maxWaveCount += 3;
+
+        minRate += 0.3f;
+        maxRate += 0.3f;
 
         _state = SpawnState.Waiting;
 

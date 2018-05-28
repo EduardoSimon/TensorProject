@@ -59,6 +59,6 @@ MonoBehaviour:
   _shootingAudioClip: {fileID: 8300000, guid: 0ed0d71c3db32c64aa047c6dc5794514, type: 3}
   _lineColor: {r: 0.1764706, g: 0.29803923, b: 0.45882353, a: 1}
   _startPowerQuantity: 100
-  _reloadingTime: 2
+  _reloadingTime: 0.1
   _reloadingRate: 0.1
-  _decreasingRate: 0.5
+  _decreasingRate: 1
