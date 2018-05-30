@@ -56,7 +56,7 @@ MonoBehaviour:
   _powerColor: 0
   _timeBetweenBullets: 0.4
   _damage: 10
-  _shootingAudioClip: {fileID: 8300000, guid: 0f01458ab91c1ac4883d0e6e549bff26, type: 3}
+  _shootingAudioClip: {fileID: 8300000, guid: efab7e3521c0b1f41b54d6e2ad6676f9, type: 3}
   _lineColor: {r: 0.94509804, g: 0.56078434, b: 0.003921569, a: 1}
   _startPowerQuantity: 100
   _reloadingTime: 1
