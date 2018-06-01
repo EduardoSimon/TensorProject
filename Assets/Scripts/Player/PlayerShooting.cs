@@ -81,6 +81,11 @@ public class PlayerShooting : MonoBehaviour {
             _gunLine.startColor = ActivePower.LineColor;
             Shoot();
         }
+
+        if (ActivePower == Powers[1] && !Input.GetButton(RightPowerAxisName))
+        {
+            GunAudioSource.Stop();
+        }
     }
 
     void Shoot()
@@ -119,7 +124,17 @@ public class PlayerShooting : MonoBehaviour {
 
     void PlayShootingSound()
     {
-        GunAudioSource.Play();
+        GunAudioSource.clip = ActivePower.ShootingAudioClip;
+
+        if (ActivePower == Powers[1])
+        {
+            if (!GunAudioSource.isPlaying)
+                GunAudioSource.Play();
+        }
+        else
+        {
+            GunAudioSource.Play();
+        }
     }
 
     IEnumerator DissolveLineRenderer()

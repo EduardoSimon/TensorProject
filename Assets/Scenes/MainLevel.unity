@@ -5743,7 +5743,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 992552230
+  randomSeed: -989234
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10868,6 +10868,21 @@ Prefab:
     - target: {fileID: 114034137716499214, guid: 1dd8243f51d291242bcf6f6196a832a8,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82479725578955748, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82479725578955748, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82479725578955748, guid: 1dd8243f51d291242bcf6f6196a832a8,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

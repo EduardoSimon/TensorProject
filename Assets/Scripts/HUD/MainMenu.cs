@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour {
 
     public void Menu()
     {
-        SceneManager.LoadScene("MenuJAM");
+        SceneManager.LoadScene("Game");
     }
 
     public void Controls()
