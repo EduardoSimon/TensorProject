@@ -1,5 +1,5 @@
 # TensorProject
-TENSOR
+![](Captura.PNG)
 
 Tensor is a game designed and coded by Sergio Rodenas, Oliver Osman and Eduardo Simon. It was made as a university project.
 The game was developed in 3 months and 30 hours was spent by each one of us. The assignment was to develop a fully functional prototype.
